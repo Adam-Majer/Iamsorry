@@ -9,7 +9,7 @@ namespace Iamsorry
             string check = "{}[]()";
             string correct = "(1 + 1) - 20 * {[100 - (200 / 4000)] +5}";
             string incorrect = "(1 + 1) - 20 * {100 - (200 / 4000)] +5}";
-            foreach (var c in correct)
+            foreach (var c in incorrect)
             {
                 if (check.IndexOf(c) != -1)
                 {
@@ -29,7 +29,6 @@ namespace Iamsorry
                         {
                             st.Push(c);
                         }
-
                     }
                     if (a == 0)
                     {

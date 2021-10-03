@@ -5,6 +5,7 @@ namespace Iamsorry
     {     
         static void Main(string[] args)
         {
+            
             Stack<char> st = new Stack<char>();
             string check = "{}[]()";
             string correct = "(1 + 1) - 20 * {[100 - (200 / 4000)] +5}";
@@ -59,9 +60,13 @@ namespace Iamsorry
         public void Push(T t)
         {            
             pole[++posithion] = t;
-        }
+        }+
         public void Pop()
         {
+            if (posithion == -1)
+            {
+                throw new System.Exception("you cant remove forom an empty Stack") ;
+            }
             posithion--;                              
         }
         public T Peek()

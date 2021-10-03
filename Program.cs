@@ -7,7 +7,44 @@ namespace Iamsorry
         {
             Stack<char> st = new Stack<char>();
             string check = "{}[]()";
-            string correct = 
+            string correct = "(1 + 1) - 20 * {[100 - (200 / 4000)] +5}";
+            string incorrect = "(1 + 1) - 20 * {100 - (200 / 4000)] +5}";
+            foreach (var c in correct)
+            {
+                if (check.IndexOf(c) != -1)
+                {
+                    int a = check.IndexOf(c);
+                    int index = check.IndexOf(c);
+                    while (a > 1)
+                    {
+                        a = a - 2;
+                    }
+                    if (a == 1 )
+                    {
+                        if (st.Peek() == check[--index])
+                        {
+                            st.Pop();
+                        }
+                        else
+                        {
+                            st.Push(c);
+                        }
+
+                    }
+                    if (a == 0)
+                    {
+                        st.Push(c);
+                    }
+                }
+            }
+            if(st.IsEmpty())
+            {
+                Console.WriteLine("pog");
+            }
+            else
+            {
+                Console.WriteLine("not pog");
+            }
         }
     }
     public class Stack<T>
@@ -29,7 +66,7 @@ namespace Iamsorry
             posithion--;                              
         }
         public T Peek()
-        {            
+        {     
             return pole[posithion];
         }
         public bool IsEmpty()
